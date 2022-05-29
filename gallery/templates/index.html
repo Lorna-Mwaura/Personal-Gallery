@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load cloudinary %}
+
+
+<section class="text-black bg-Ming">
+    <h1 class="text-center mt-3">Welcome to my personal Gallery</h1>
+    <p class="text-center"><strong>Enjoy!!!!</strong></p>
+    <div class="text-center mt-3">
+        <div class="row">
+            {% for pic in image %}
+
+            <div class="card m-3" style="width:400px; height: 450px;">
+                <h2>{{ pic.name }}</h2>
+                <img src="{{pic.image.url}}" alt="" data-toogle="modal" data-target="#myModal" style="width:350px; height:300px;">
+                <div class="card-body">
+                    <p class="card-text">{{pic.created_at}}</p>
+                    <a href="#" class="btn">{{pic.location}}</a>
+
+                    <a href="#" class="btn">{{pic.category}}</a>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                        View Details
+                      </button>
+                      
+                </div>
+            </div>
+          
+        <!-- Modal class -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+
+          
+
+           
+          
+            
+     
+        </div>
+    </div>
+</section>
+{% endblock %}
